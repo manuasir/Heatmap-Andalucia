@@ -2,17 +2,23 @@ const express = require('express');
 const router = express.Router();
 const Houses = require('./models/houses')
 const _ = require('lodash');
+var redis = require("redis"),
+    client = redis.createClient();
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  Houses.find(function(err,data){
-      let result = []
-      for(let item of data){
-        result.push([item.latitude,item.longitude,item.price])
-      }
-      console.log('el result ',result)
-      res.render('layout',{datosBrutos:JSON.stringify(result)});
-  })
+let result = [];
 
+router.get('/', function(req, res, next) {
+	console.log("getting /")
+	client.get("rawdata", function (err, replies) {
+		if(err){
+			console.error(err)
+			return res.render('error');
+		}
+		let parsedData = JSON.parse(replies)
+		let arr = parsedData.data;
+    	//console.log(replies + " replies");
+      	res.render('layout',{datosBrutos:arr});
+	});
 });
 
 

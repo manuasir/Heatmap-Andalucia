@@ -7,28 +7,41 @@
 var app = require('../app');
 var debug = require('debug')('heatmap-viviendas-andalucia:server');
 var http = require('http');
-
+var Houses = require('../routes/models/houses');
+var redis = require("redis"),
+    client = redis.createClient();
 /**
  * Get port from environment and store in Express.
  */
-
+var server;
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
+let result = [];
 
-var server = http.createServer(app);
+const start = async () => {
+  try{
+  console.log("starting....")
+  let data = await Houses.find();
+  for(let item of data){
+    result.push([item.latitude,item.longitude,item.price])
+  }  
+  let rawdata = {data:result}
+  server = http.createServer(app);
+  client.set("rawdata", JSON.stringify(rawdata), redis.print);
 
-/**
- * Listen on provided port, on all network interfaces.
- */
+  server.listen(port);
+  server.on('error', onError);
+  server.on('listening', onListening);
+}catch(err){
+  console.error("error!",err);
+  throw err;
+}
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
-
+}
 /**
  * Normalize a port into a number, string, or false.
  */
@@ -88,3 +101,4 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+start();

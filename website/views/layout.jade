@@ -7,13 +7,13 @@ html
         link(rel='shortcut icon', type='image/x-icon', href='docs/images/favicon.ico')
         link(rel='stylesheet', href='https://unpkg.com/leaflet@1.2.0/dist/leaflet.css', integrity='sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==', crossorigin='')
         script(src='https://unpkg.com/leaflet@1.2.0/dist/leaflet.js', integrity='sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==', crossorigin='')
-        script(src='/maps/heat.js')
+        script(src='/javascripts/heatmap.js')
     body
-        #mapid(style='width: 1050; height: 500px;')
+        #mapid(style='width: 1050px; height: 500px;')
         script.
 
             var mymap = L.map('mapid').setView([37.140, -2.78], 10);
-            var eljson = !{datosBrutos};
+            var eljson =  !{JSON.stringify(datosBrutos)};
             console.log("eljson ",eljson)
             var heat = L.heatLayer(eljson, {
                 radius: 25,

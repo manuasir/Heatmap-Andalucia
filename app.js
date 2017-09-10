@@ -8,7 +8,8 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 const mongoose   = require('mongoose');
 var app = express();
-mongoose.connect('mongodb://manuasir:mongodb@ds147072.mlab.com:47072/heroku_mctx4f0c',{useMongoClient:true});
+//mongoose.connect('mongodb://manuasir:mongodb@ds147072.mlab.com:47072/heroku_mctx4f0c',{useMongoClient:true});
+mongoose.connect('mongodb://localhost/houses',{useMongoClient:true});
 // view engine setup
 app.set('views', path.join(__dirname, 'website/views'));
 app.set('view engine', 'jade');

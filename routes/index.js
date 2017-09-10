@@ -16,7 +16,6 @@ router.get('/', function(req, res, next) {
 		}
 		let parsedData = JSON.parse(replies)
 		let arr = parsedData.data;
-    	//console.log(replies + " replies");
       	res.render('layout',{datosBrutos:arr});
 	});
 });

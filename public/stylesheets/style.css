@@ -6,3 +6,14 @@ body {
 a {
   color: #00B7FF;
 }
+
+heat-map {
+  width: 1080px;
+  height: 720px;
+  display: block;
+}
+
+heat-map div {
+  height: 100%;
+}
+#mapid { height: 180px; }

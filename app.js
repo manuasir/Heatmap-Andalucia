@@ -6,12 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
-
+const mongoose   = require('mongoose');
 var app = express();
-
+mongoose.connect('mongodb://manuasir:mongodb@ds147072.mlab.com:47072/heroku_mctx4f0c',{useMongoClient:true});
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'website/views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
@@ -21,9 +20,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'bower_components')));
 
 app.use('/', index);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

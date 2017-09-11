@@ -27,7 +27,6 @@ server = http.createServer(app);
 server.listen(process.env.PORT || port);
 server.on('error', onError);
 server.on('listening', onListening);
-}catch(err){
 const start = async () => {
   try{
   console.log("starting....")
@@ -38,7 +37,8 @@ const start = async () => {
   let rawdata = {data:result}
   client.set("rawdata", JSON.stringify(rawdata), redis.print);
 
-  
+
+}catch(err){
   console.error("error!",err);
   throw err;
 }

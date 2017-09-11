@@ -16,7 +16,7 @@ var redis = require("redis"),
  */
 var server;
 var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+app.set('port', process.env.PORT || port);
 
 /**
  * Create HTTP server.

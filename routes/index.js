@@ -8,18 +8,20 @@ var redis = require("redis"),
 let result = [];
 
 router.get('/', function(req, res, next) {
-	console.log("getting /")
+  	res.render('layout');
+});
+
+router.get('/data', function(req, res, next) {
+	console.log("getting /data")
 	client.get("rawdata", function (err, replies) {
 		if(err){
 			console.error(err)
-			return res.render('error');
+			return res.status(404).json({error:'data error'});
 		}
 		let parsedData = JSON.parse(replies)
-		let arr = parsedData.data;
-      	res.render('layout',{datosBrutos:arr});
+      	res.status(200).json(parsedData);
 	});
 });
-
 
 
 module.exports = router;

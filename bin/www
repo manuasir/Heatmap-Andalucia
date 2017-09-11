@@ -15,7 +15,7 @@ var redis = require("redis"),
  * Get port from environment and store in Express.
  */
 var server;
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort('3000');
 app.set('port', process.env.PORT || port);
 
 /**
@@ -34,7 +34,7 @@ const start = async () => {
   server = http.createServer(app);
   client.set("rawdata", JSON.stringify(rawdata), redis.print);
 
-  server.listen(port);
+  server.listen(process.env.PORT || port);
   server.on('error', onError);
   server.on('listening', onListening);
 }catch(err){

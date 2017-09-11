@@ -3,7 +3,7 @@
      * Controlador de Mapa
      * @param $http
      */
-    function mapCtrl($http) {
+    function mapCtrl($http,$timeout) {
         var vm = this;
         $http.get('/data')
         .then(function(data){
@@ -23,9 +23,6 @@
                 id: 'mapbox.streets'
             }).addTo(mymap);
         })
-
-        
-      	
     }
 
     angular.module('miApp')

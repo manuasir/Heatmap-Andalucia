@@ -3,7 +3,7 @@ const router = express.Router();
 const Houses = require('./models/houses')
 const _ = require('lodash');
 var redis = require("redis"),
-    client = redis.createClient();
+    client = redis.createClient('77.227.117.213');
 /* GET home page. */
 let result = [];
 

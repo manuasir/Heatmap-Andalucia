@@ -9,7 +9,7 @@ var debug = require('debug')('heatmap-viviendas-andalucia:server');
 var http = require('http');
 var Houses = require('../routes/models/houses');
 var redis = require("redis"),
-    client = redis.createClient('http://77.227.117.213');
+    client = redis.createClient('redis://77.227.117.213');
 
 /**
  * Get port from environment and store in Express.

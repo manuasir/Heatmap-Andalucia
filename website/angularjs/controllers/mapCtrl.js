@@ -3,7 +3,7 @@
      * Controlador de Mapa
      * @param $http
      */
-    function mapCtrl($http,$timeout) {
+    function mapCtrl($http) {
         var vm = this;
         $http.get('/data')
         .then(function(data){

@@ -1,15 +1,18 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 
-var index = require('./routes/index');
+const index = require('./routes/index');
 const mongoose   = require('mongoose');
-var app = express();
+let app = express();
 //mongoose.connect('mongodb://manuasir:mongodb@ds147072.mlab.com:47072/heroku_mctx4f0c',{useMongoClient:true});
-mongoose.connect('mongodb://localhost/houses',{useMongoClient:true});
+mongoose.connect('mongodb://192.168.0.154/houses',{useMongoClient:true});
+mongoose.connection.on('error',function (err) {
+  console.error('Mongoose default connection error: ' + err);
+});
 // view engine setup
 app.set('views', path.join(__dirname, 'website/views'));
 app.set('view engine', 'jade');
@@ -27,7 +30,7 @@ app.use('/', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  let err = new Error('Not Found');
   err.status = 404;
   next(err);
 });

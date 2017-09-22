@@ -162,22 +162,6 @@
             <path>
               <item name="heatmap-andalucia" type="b2602c69:ProjectViewProjectNode" />
               <item name="heatmap-andalucia" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="heatmap-andalucia" type="b2602c69:ProjectViewProjectNode" />
-              <item name="heatmap-andalucia" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="heatmap-andalucia" type="b2602c69:ProjectViewProjectNode" />
-              <item name="heatmap-andalucia" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="heatmap-andalucia" type="b2602c69:ProjectViewProjectNode" />
-              <item name="heatmap-andalucia" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -264,12 +248,12 @@
       <workItem from="1505004828478" duration="9252000" />
       <workItem from="1505050716067" duration="3110000" />
       <workItem from="1506117843726" duration="1414000" />
-      <workItem from="1506120402445" duration="987000" />
+      <workItem from="1506120402445" duration="1113000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20609000" />
+    <option name="totallyTimeSpent" value="20735000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">

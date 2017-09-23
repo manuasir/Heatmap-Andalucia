@@ -5,11 +5,15 @@
      */
     function mapCtrl($http) {
         let vm = this;
+        vm.loading=true;
+        console.log("loading ",vm.loading)
         $http.get('/data')
         .then(function(data){
         	vm.rawData = data
-        	console.log(data)
-        	let mymap = L.map('mapid').setView([37.140, -2.78], 10);
+          vm.loading=false;
+          console.log("loading2 ",vm.loading)
+
+          let mymap = L.map('mapid').setView([37.140, -2.78], 10);
             let eljson =  vm.rawData
             let heat = L.heatLayer(eljson.data.data, {
                 radius: 15,

@@ -16,8 +16,11 @@ html(ng-app='miApp')
         script(src='https://unpkg.com/leaflet@1.2.0/dist/leaflet.js', integrity='sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==', crossorigin='')
         script(src='/javascripts/heatmap.js')
     body(ng-controller='mapCtrl as mc')
+        div( ng-show='mc.loading')
+            md-progress-circular(ng-disabled="!mc.loading" md-diameter="96" style='{padding:30%}')
         #mapid(style='width: 1920px; height: 1080px;')
-        
+
+
 
         script(src = "https://code.jquery.com/jquery-3.1.1.min.js",integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=",crossorigin="anonymous")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.min.js")

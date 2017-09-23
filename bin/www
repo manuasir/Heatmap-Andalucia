@@ -8,8 +8,8 @@ const app = require('../app');
 const debug = require('debug')('heatmap-viviendas-andalucia:server');
 const http = require('http');
 const Houses = require('../routes/models/houses');
-const redis = require("redis");
-let client = redis.createClient();
+// const redis = require("redis");
+// let client = redis.createClient();
 /**
  * Get port from environment and store in Express.
  */
@@ -25,14 +25,14 @@ let result = [];
 const start = async () => {
   try{
   console.log("starting....")
-  let data = await Houses.find();
-  console.log('data weight',data.length)
-  for(let item of data){
-    result.push([item.latitude,item.longitude,item.price])
-  }  
-  let rawdata = {data:result}
+  // let data = await Houses.find();
+  // console.log('data weight',data.length)
+  // for(let item of data){
+  //   result.push([item.latitude,item.longitude,item.price])
+  // }
+  // let rawdata = {data:result}
   server = http.createServer(app);
-  client.set("rawdata", JSON.stringify(rawdata), redis.print);
+  // client.set("rawdata", JSON.stringify(rawdata), redis.print);
 
   server.listen(port);
   server.on('error', onError);

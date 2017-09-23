@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const index = require('./routes/index');
 const mongoose   = require('mongoose');
 let app = express();
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://manuasir:Mlab51617-@ds147964.mlab.com:47964/andalucia-heatmap',{useMongoClient:true});
 // mongoose.connect('mongodb://192.168.0.154/houses',{useMongoClient:true});
 mongoose.connection.on('error',function (err) {

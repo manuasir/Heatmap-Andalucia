@@ -4,14 +4,14 @@
      * @param $http
      */
     function mapCtrl($http) {
-        var vm = this;
+        let vm = this;
         $http.get('/data')
         .then(function(data){
         	vm.rawData = data
         	console.log(data)
-        	var mymap = L.map('mapid').setView([37.140, -2.78], 10);
-            var eljson =  vm.rawData
-            var heat = L.heatLayer(eljson.data.data, {
+        	let mymap = L.map('mapid').setView([37.140, -2.78], 10);
+            let eljson =  vm.rawData
+            let heat = L.heatLayer(eljson.data.data, {
                 radius: 15,
                 max: 1500000
             }).addTo(mymap);

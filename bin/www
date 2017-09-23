@@ -26,6 +26,7 @@ const start = async () => {
   try{
   console.log("starting....")
   let data = await Houses.find();
+  console.log('data weight',data.length)
   for(let item of data){
     result.push([item.latitude,item.longitude,item.price])
   }  

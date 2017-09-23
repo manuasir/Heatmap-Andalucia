@@ -8,8 +8,8 @@ const bodyParser = require('body-parser');
 const index = require('./routes/index');
 const mongoose   = require('mongoose');
 let app = express();
-//mongoose.connect('mongodb://manuasir:mongodb@ds147072.mlab.com:47072/heroku_mctx4f0c',{useMongoClient:true});
-mongoose.connect('mongodb://192.168.0.154/houses',{useMongoClient:true});
+mongoose.connect('mongodb://manuasir:Mlab51617-@ds147964.mlab.com:47964/andalucia-heatmap',{useMongoClient:true});
+// mongoose.connect('mongodb://192.168.0.154/houses',{useMongoClient:true});
 mongoose.connection.on('error',function (err) {
   console.error('Mongoose default connection error: ' + err);
 });
